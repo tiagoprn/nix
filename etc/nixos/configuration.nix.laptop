@@ -29,9 +29,13 @@ in
     ];
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  # Setup keyfile
+  boot.initrd.secrets = {
+    "/crypto_keyfile.bin" = null;
+  };
 
   networking.hostName = "nixos-prime"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -78,7 +82,7 @@ in
   console.keyMap = "us-acentos";
 
   # Enable CUPS to print documents.
-  services.printing.enable = false;
+  services.printing.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -101,6 +105,17 @@ in
   # services.xserver.libinput.enable = true;
 
   security.sudo.wheelNeedsPassword = false;
+
+  systemd.user.services.gsettings = {
+    description = "disable CAPS LOCK key (it freezes the laptop when pressed)";
+    serviceConfig.ExecStart = let
+      script = pkgs.writeScript "gsettings-script" ''
+        #!/bin/sh
+        gsettings set org.gnome.desktop.input-sources xkb-options "['caps:none']"
+      '';
+    in "${script}";
+    wantedBy = [ "default.target" ];
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.tiago = {
@@ -151,7 +166,6 @@ in
       pass
       pass-wayland
       pulsemixer
-      meld
 
       # TODO: move below to flakes later on, those are to enable my PDE with nvim
       fd
@@ -254,15 +268,7 @@ in
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-
-  services.openssh = {
-    enable = true; # This ensures that the SSH service is enabled
-  
-    settings = {
-      PermitRootLogin = "without-password";
-      PasswordAuthentication = false;
-    };
-  };
+  services.openssh.enable = true;
 
   xdg.portal = {
     enable = true;
