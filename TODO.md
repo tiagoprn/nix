@@ -1,11 +1,6 @@
 # NEXT
 
-- [ ] Update `configuration.nix` on the VM
-    - [ ] Get `/etc/nixos/configuration.nix` from the VM (nixos) and compare with this repo's one.
-    - [ ] Merge the differences between them and then rebuild nixos.
-
 - [ ] nvim:
-    - [ ] install dependencies
     - [ ] clone and config from my repo pde.nvim
 
 - [ ] test the python sample nix-environment on this repo on the VM.
