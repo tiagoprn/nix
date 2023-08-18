@@ -69,9 +69,9 @@ if [ -d "$NPM_BIN" ]; then
     export PATH="$PATH:$NPM_BIN"
 fi
 
-NVIM_BIN="$HOME/neovim-install/bin"
-if [ -d "$NVIM_BIN" ]; then
-    export PATH="$PATH:$NVIM_BIN"
+LOCAL_BIN="$HOME/local/bin"
+if [ -d "$LOCAL_BIN" ]; then
+    export PATH="$PATH:$LOCAL_BIN"
 fi
 
 export TEXT_BROWSER=w3m
