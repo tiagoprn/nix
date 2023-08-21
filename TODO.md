@@ -2,7 +2,7 @@
 
 - [-] nvim (nix-prime VM on holodeck):
     - [x] compile on $HOME/local/bin
-    - [ ] check how to autoload .bashrc on nixos (it is not working)
+    - [ ] check how to autoload .bashrc on nixos (check my chat "source .bashrc configuration.nix" on ChatGPT)
     - [ ] clone and config from my repo pde.nvim
 
 - [ ] test the python sample nix-environment on this repo on the VM.
