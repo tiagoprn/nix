@@ -82,7 +82,7 @@ in
   console.keyMap = "us-acentos";
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.printing.enable = false;
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -116,6 +116,15 @@ in
     in "${script}";
     wantedBy = [ "default.target" ];
   };
+
+  # systemd.user.services.ydotoold = {
+  #   description = "daemon for ydotool";
+  #   wantedBy = [ "default.target" ];
+  #   serviceConfig = {
+  #     ExecStart = "${pkgs.ydotool}/bin/ydotoold";
+  #     Restart = "always";
+  #   };
+  # };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.tiago = {
@@ -166,8 +175,11 @@ in
       pass
       pass-wayland
       pulsemixer
+      meld
+      starship
 
-      # TODO: move below to flakes later on, those are to enable my PDE with nvim
+      # NOTE: to enable my PDE with nvim
+      difftastic
       fd
       ripgrep
       pandoc
@@ -222,6 +234,19 @@ in
     ];
   };
 
+  # Add a static file to the system configuration
+  environment.etc."bash_profile_for_tiago".text = ''
+    if [ -f ~/.bashrc ]; then
+      source ~/.bashrc
+    fi
+  '';
+
+  # At system activation time, copy it over to the user's home directory
+  system.activationScripts.copyBashProfile = ''
+    cp /etc/static/bash_profile_for_tiago /home/tiago/.bash_profile \
+    	&& chown tiago:users /home/tiago/.bash_profile
+  '';
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -255,6 +280,8 @@ in
     nodejs_20
     shfmt
     xz
+    w3m
+    # ydotool
   ] ++ neovimBuildDeps; # concatenate the neovimBuildDeps list here;
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -268,7 +295,15 @@ in
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+
+  services.openssh = {
+    enable = true; # This ensures that the SSH service is enabled
+
+    settings = {
+      PermitRootLogin = "without-password";
+      PasswordAuthentication = false;
+    };
+  };
 
   xdg.portal = {
     enable = true;
