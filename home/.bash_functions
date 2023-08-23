@@ -154,10 +154,12 @@ function command_exists () {  # check if a command exists
 }
 
 function n() {  # run a command from navi cheatsheet
+    BLUE="\033[34m"
+    DEFAULT="\033[0m"
     clipboard_copy_command=$(which wl-copy)
     if [ -n "$clipboard_copy_command" ] ;
     then
-        OUTPUT=$(navi --fzf-overrides '--color=bw,fg+:#bf2a2a,bg+:#ffffff,preview-fg:#bf2a2a' --path "$(cat ~/.navirc)" --print) && echo "$OUTPUT" | wl-copy && eval "$(wl-paste)"
+        OUTPUT=$(navi --fzf-overrides '--color=bw,fg+:#bf2a2a,bg+:#ffffff,preview-fg:#bf2a2a' --path "$(cat ~/.navirc)" --print) && echo "$OUTPUT" | wl-copy && history -s "$(wl-paste)" && eval "$(wl-paste)" && echo -e "\n(command '${BLUE}$(wl-paste)${DEFAULT}' successfully added to shell history)"
     else
         if [ -z "$TMUX" ]
         then
