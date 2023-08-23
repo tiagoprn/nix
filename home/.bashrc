@@ -11,18 +11,30 @@ shopt -s cmdhist
 ## Unified bash history
 shopt -s histappend
 
+if [ -f "$HOME/.bash_functions" ]; then
+    source "$HOME/.bash_functions"
+fi
+
+if [ -f "$HOME/.bash_aliases" ]; then
+    source "$HOME/.bash_aliases"
+fi
+
+if [ -f "$HOME/bashrc.custom" ]; then
+    source "$HOME/bashrc.custom"
+fi
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 # disable <Ctrl-s> permanently in terminal, which freezes it
 stty -ixon
 
-# ---------------- BASH PROMPT (end) ----------------- #
-
 # --- Environment variables
 
 export EDITOR=nvim
 export VISUAL=nvim
+export MANPAGER='nvim +Man!'
+export MANWIDTH=999
 
 # using 'kill -9 ,,' or 'cd ,,', triggers fzf for autocompletion
 export FZF_COMPLETION_TRIGGER=',,'
@@ -38,7 +50,6 @@ export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 # \e = Alt+
 bind 'set show-mode-in-prompt on'
 bind -x '"\C-r":fzf-bash-history-search'
-bind -x '"\C-b":tmux-save-history'
 bind -x '"\C-t":tmux-search-history'
 # bind -x '"\ei":vim-fzf'
 bind -x '"\C-o":vim-fzf'
@@ -69,9 +80,9 @@ if [ -d "$NPM_BIN" ]; then
     export PATH="$PATH:$NPM_BIN"
 fi
 
-LOCAL_BIN="$HOME/local/bin"
-if [ -d "$LOCAL_BIN" ]; then
-    export PATH="$PATH:$LOCAL_BIN"
+NVIM_BIN="$HOME/neovim-install/bin"
+if [ -d "$NVIM_BIN" ]; then
+    export PATH="$PATH:$NVIM_BIN"
 fi
 
 export TEXT_BROWSER=w3m
