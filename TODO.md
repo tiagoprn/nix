@@ -9,6 +9,15 @@
     - [ ] clone and config from my repo pde.nvim
 
 - [ ] test the python sample nix-environment on this repo on the VM.
+    - [ ] Implement some enhancements from vimjoyer last video:
+        - <https://github.com/vimjoyer/devshells-video> (the second file does not use a flake, and supports environment variables)
+        - Where to get old hash versions of packages (e.g. python): <https://www.nixhub.io/packages/python>
+
+- [ ] Testar essa alternativa ao nix-shell para python: <https://www.jetpack.io/devbox/docs/quickstart/>. Interesting links:
+    - <https://www.jetpack.io/devbox/docs/configuration/>
+    - <https://www.jetpack.io/devbox/docs/guides/scripts/>
+    - <https://github.com/jetpack-io/devbox/tree/main/examples/development/python>
+    - Where to get old hash versions of packages (e.g. python): <https://www.nixhub.io/packages/python>
 
 ## SSD
 
