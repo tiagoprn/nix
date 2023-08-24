@@ -282,7 +282,6 @@ in
     gitui
     git-sync
     difftastic
-    # xdg-desktop-portal-gtk
     wl-clipboard
     # texlive-combined-full
     # texlive-combined-tetex
@@ -292,9 +291,16 @@ in
     shfmt
     xz
     w3m
+    # hyprland:
+    xdg-desktop-portal
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-wlr
+    xdg-desktop-portal-hyprland
     wofi
     wofi-emoji
-    # waybar
+    waybar
+    bibata-cursors
+    bibata-cursors-translucent
     # ydotool
   ] ++ neovimBuildDeps; # concatenate the neovimBuildDeps list here;
 
