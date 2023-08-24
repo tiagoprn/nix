@@ -234,6 +234,17 @@ in
     ];
   };
 
+  # Creates (or replaces if it exists) a symlink for ~tiago/.bash_profile to /dev/stdin
+  # and then writes the specified content into it.
+#   systemd.tmpfiles.rules = [
+#     "L+ /home/tiago/.bash_profile - - - - /dev/stdin <<EOF
+#     if [ -f ~/.bashrc ]; then
+#       source ~/.bashrc
+#     fi
+# EOF
+#     "
+#   ];
+
   # Add a static file to the system configuration
   environment.etc."bash_profile_for_tiago".text = ''
     if [ -f ~/.bashrc ]; then
@@ -281,6 +292,9 @@ in
     shfmt
     xz
     w3m
+    wofi
+    wofi-emoji
+    # waybar
     # ydotool
   ] ++ neovimBuildDeps; # concatenate the neovimBuildDeps list here;
 
@@ -292,7 +306,32 @@ in
   #   enableSSHSupport = true;
   # };
 
-  # List services that you want to enable:
+  programs.hyprland = {
+    enable = true;
+    nvidiaPatches = false;
+    xwayland.enable = true;
+  };
+
+  environment.sessionVariables = {
+    # If your cursor becomes invisible
+    WLR_NO_HARDWARE_CURSORS = "1";
+    # Hint electron apps to use wayland
+    NIXOS_OZONE_WL = "1";
+  };
+
+  hardware = {
+      # Opengl
+      opengl.enable = true;
+
+      # Most wayland compositors need this
+      nvidia.modesetting.enable = true;
+  };
+
+  # waybar
+  # (pkgs.waybar.overrideAttrs (oldAttrs: {
+  #     mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+  #   })
+  # )
 
   # Enable the OpenSSH daemon.
 

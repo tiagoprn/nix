@@ -28,7 +28,16 @@
         - [ ] git pull on `/storage/src/pde.nvim`
         - [ ] compile with: `/storage/src/pde.nvim/scripts/sync-neovim.sh --source-path $HOME/src/nvim --binary-path $HOME/local/bin/nvim `
 
-- [ ] Install hyprland
+- [-] Install hyprland
+    - [x] Bootstrap with initial vimjoyer configuration: <https://www.youtube.com/watch?v=61wGzIv12Ds>
+    - [x] Create `/home/tiago/.config/hypr`
+    - [x] Copy `/home/tiago/.config/hypr` to `/storage/src/nix`
+    - [ ] Configure workspaces on monitors
+        - [ ] <https://wiki.hyprland.org/FAQ/#how-do-i-move-my-favorite-workspaces-to-a-new-monitor-when-i-plug-it-in>
+        - [ ] <http://wiki.hyprland.org/FAQ/#how-do-i-export-envvars-for-hyprland>
+        - [ ] <http://wiki.hyprland.org/FAQ/#some-of-my-apps-take-a-really-long-time-to-open>
+    - [ ] Configure font size on kitty to be smaller
+    - [ ] Configure waybar
 
 - [ ] flatpaks (see ChatGPT on my chat "Install Flatpaks on NixOS")
     - [ ] gimp
