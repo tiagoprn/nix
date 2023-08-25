@@ -130,7 +130,7 @@ in
   users.users.tiago = {
     isNormalUser = true;
     description = "tiago";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "input" ];
     packages = with pkgs; [
       # TODO: move to section environment.systemPackages below
       firefox
@@ -292,15 +292,23 @@ in
     xz
     w3m
     # hyprland:
-    xdg-desktop-portal
+    # xdg-desktop-portal
     xdg-desktop-portal-gtk
-    xdg-desktop-portal-wlr
+    # xdg-desktop-portal-wlr - according to https://wiki.hyprland.org/Useful-Utilities/Hyprland-desktop-portal/, conflicts with the hyprland one
     xdg-desktop-portal-hyprland
     wofi
     wofi-emoji
-    waybar
+    # below enables wlr/workspaces module on waybar:
+    (waybar.overrideAttrs (oldAttrs: { mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true "]; }))
     bibata-cursors
     bibata-cursors-translucent
+    wayland-utils
+    qt6.qtwayland
+    libsForQt5.qt5.qtwayland
+    wlroots
+    wlr-randr
+    wlprop
+    hyprpicker
     # ydotool
   ] ++ neovimBuildDeps; # concatenate the neovimBuildDeps list here;
 
@@ -333,11 +341,6 @@ in
       nvidia.modesetting.enable = true;
   };
 
-  # waybar
-  # (pkgs.waybar.overrideAttrs (oldAttrs: {
-  #     mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-  #   })
-  # )
 
   # Enable the OpenSSH daemon.
 

@@ -1,24 +1,5 @@
 # NEXT
 
-## VM
-
-- [-] nvim (nix-prime VM on holodeck):
-    - [x] compile on $HOME/local/bin
-    - [ ] git pull on `/storage/src/nix`
-        - [ ] copy the .* files at `home` here to the user's $HOME
-    - [ ] clone and config from my repo pde.nvim
-
-- [ ] test the python sample nix-environment on this repo on the VM.
-    - [ ] Implement some enhancements from vimjoyer last video:
-        - <https://github.com/vimjoyer/devshells-video> (the second file does not use a flake, and supports environment variables)
-        - Where to get old hash versions of packages (e.g. python): <https://www.nixhub.io/packages/python>
-
-- [ ] Testar essa alternativa ao nix-shell para python: <https://www.jetpack.io/devbox/docs/quickstart/>. Interesting links:
-    - <https://www.jetpack.io/devbox/docs/configuration/>
-    - <https://www.jetpack.io/devbox/docs/guides/scripts/>
-    - <https://github.com/jetpack-io/devbox/tree/main/examples/development/python>
-    - Where to get old hash versions of packages (e.g. python): <https://www.nixhub.io/packages/python>
-
 ## SSD
 
 - [ ] Reinstall neovim:
@@ -37,8 +18,12 @@
         - [ ] <http://wiki.hyprland.org/FAQ/#how-do-i-export-envvars-for-hyprland>
         - [-] <http://wiki.hyprland.org/FAQ/#some-of-my-apps-take-a-really-long-time-to-open>
             - [-] I created the script to do that but it is still taking too long.
+            - [ ] <https://wiki.hyprland.org/Useful-Utilities/Hyprland-desktop-portal/>
     - [x] Configure font size on kitty to be smaller
-    - [ ] Configure waybar
+    - [x] Configure waybar
+        - [x] make it show the current workspace
+        - [x] Change current window module style
+        - [x] Change to numbered workspaces
 
 - [ ] flatpaks (see ChatGPT on my chat "Install Flatpaks on NixOS")
     - [ ] gimp
@@ -48,3 +33,22 @@
     (see what else I have on cosmos)
 
     - [ ] disable hibernation/suspend
+
+## VM
+
+- [-] nvim (nix-prime VM on holodeck):
+    - [x] compile on $HOME/local/bin
+    - [ ] git pull on `/storage/src/nix`
+        - [ ] copy the .* files at `home` here to the user's $HOME
+    - [ ] clone and config from my repo pde.nvim
+
+- [ ] test the python sample nix-environment on this repo on the VM.
+    - [ ] Implement some enhancements from vimjoyer last video:
+        - <https://github.com/vimjoyer/devshells-video> (the second file does not use a flake, and supports environment variables)
+        - Where to get old hash versions of packages (e.g. python): <https://www.nixhub.io/packages/python>
+
+- [ ] Testar essa alternativa ao nix-shell para python: <https://www.jetpack.io/devbox/docs/quickstart/>. Interesting links:
+    - <https://www.jetpack.io/devbox/docs/configuration/>
+    - <https://www.jetpack.io/devbox/docs/guides/scripts/>
+    - <https://github.com/jetpack-io/devbox/tree/main/examples/development/python>
+    - Where to get old hash versions of packages (e.g. python): <https://www.nixhub.io/packages/python>
