@@ -1,4 +1,19 @@
-# etc
+
+- [-] Install hyprland (based on the files at `/storage/vendors/dot_files/stephan-raabe`)
+    - [x] Bootstrap with initial vimjoyer configuration: <https://www.youtube.com/watch?v=61wGzIv12Ds>
+    - [x] Create `/home/tiago/.config/hypr`
+    - [x] Copy `/home/tiago/.config/hypr` to `/storage/src/nix`
+    - [x] Configure font size on kitty to be smaller
+    - [x] Configure waybar
+        - [x] make it show the current workspace
+        - [x] Change current window module style
+        - [x] Change to numbered workspaces
+
+- [x] Install neovim:
+    - [x] Include `$HOME/local/bin` on `$PATH` at `~/.bashrc`
+    - [x] Compile neovim:
+        - [x] git pull on `/storage/src/pde.nvim`
+        - [x] compile with: `/storage/src/pde.nvim/scripts/sync-neovim.sh --source-path $HOME/src/nvim --binary-path $HOME/local/bin/nvim `
 
 - [x] Update `configuration.nix` on the VM
     - [x] Get `/etc/nixos/configuration.nix` from the VM (nixos) and compare with this repo's one.
