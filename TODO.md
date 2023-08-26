@@ -9,7 +9,7 @@ services.flatpak.enable = true;
 services.hyprland.enable = true;
 ```
 
-- [ ] nvim is deleting the first line when saving bash scripts when saving. Probably related to missing lsp components (null-ls and bash-language-server)
+- [ ] nvim is deleting the first line when saving files (bash scripts, markdown files, etc). Probably related to missing lsp components (null-ls and bash-language-server)
 
 - [-] Install hyprland (based on the files at `/storage/vendors/dot_files/stephan-raabe`)
     - [ ] Configure workspaces on monitors
