@@ -70,7 +70,12 @@ if [ -d "$CARGO_BIN" ]; then
     export PATH="$PATH:$CARGO_BIN"
 fi
 
-LOCAL_BIN="$HOME/.local/bin"
+HIDDEN_LOCAL_BIN="$HOME/.local/bin"
+if [ -d "$HIDDEN_LOCAL_BIN" ]; then
+    export PATH="$PATH:$HIDDEN_LOCAL_BIN"
+fi
+
+LOCAL_BIN="$HOME/local/bin"
 if [ -d "$LOCAL_BIN" ]; then
     export PATH="$PATH:$LOCAL_BIN"
 fi
@@ -83,6 +88,11 @@ fi
 NVIM_BIN="$HOME/neovim-install/bin"
 if [ -d "$NVIM_BIN" ]; then
     export PATH="$PATH:$NVIM_BIN"
+fi
+
+SCRIPTS_BIN="$HOME/scripts"
+if [ -d "$SCRIPTS_BIN" ]; then
+    export PATH="$PATH:$SCRIPTS_BIN"
 fi
 
 export TEXT_BROWSER=w3m
