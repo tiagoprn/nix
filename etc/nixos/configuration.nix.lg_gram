@@ -1,4 +1,4 @@
-# Edit this configuration file to define what should be installed on
+
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
@@ -37,7 +37,11 @@ in
     "/crypto_keyfile.bin" = null;
   };
 
-  networking.hostName = "nixos-prime"; # Define your hostname.
+  # Enable swap on luks
+  boot.initrd.luks.devices."luks-c608d423-4b40-4212-ade8-dba67ee3b460".device = "/dev/disk/by-uuid/c608d423-4b40-4212-ade8-dba67ee3b460";
+  boot.initrd.luks.devices."luks-c608d423-4b40-4212-ade8-dba67ee3b460".keyFile = "/crypto_keyfile.bin";
+
+  networking.hostName = "nixos-lab"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -261,10 +265,6 @@ in
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  nixpkgs.overlays = [
-    # ... other overlays go here ...
-  ];
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -292,7 +292,7 @@ in
     xz
     w3m
     # hyprland:
-    # xdg-desktop-portal
+    xdg-desktop-portal
     xdg-desktop-portal-gtk
     # xdg-desktop-portal-wlr - according to https://wiki.hyprland.org/Useful-Utilities/Hyprland-desktop-portal/, conflicts with the hyprland one
     xdg-desktop-portal-hyprland
