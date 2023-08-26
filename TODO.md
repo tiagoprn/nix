@@ -2,6 +2,15 @@
 
 ## LG Gram
 
+- `configuration.nix`: `hyprland` and `flatpak` remove from the packages list and install from the pattern:
+
+``` bash
+services.flatpak.enable = true;
+services.hyprland.enable = true;
+```
+
+- [ ] nvim is deleting the first line when saving bash scripts when saving. Probably related to missing lsp components (null-ls and bash-language-server)
+
 - [-] Install hyprland (based on the files at `/storage/vendors/dot_files/stephan-raabe`)
     - [ ] Configure workspaces on monitors
         - [ ] <https://wiki.hyprland.org/FAQ/#how-do-i-move-my-favorite-workspaces-to-a-new-monitor-when-i-plug-it-in>
@@ -16,6 +25,14 @@
     - [ ] firefox (remove the one that is on configuration.nix before)
     - [ ] chromium
     (see what else I have on cosmos)
+        ``` bash
+        flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+        flatpak update
+        flatpak search bustle
+        flatpak install flathub org.freedesktop.Bustle
+        flatpak run org.freedesktop.Bustle
+        ```
+
 
     - [ ] disable hibernation/suspend
 
