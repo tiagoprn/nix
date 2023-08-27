@@ -172,7 +172,6 @@ in
       hdparm
       fsarchiver
       qrencode
-      flatpak
       wyrd
       inotify-tools
       slop
@@ -268,6 +267,7 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    vim
     git
     gnumake
     python310Full
@@ -291,13 +291,7 @@ in
     shfmt
     xz
     w3m
-    # hyprland:
-    xdg-desktop-portal
-    xdg-desktop-portal-gtk
-    # xdg-desktop-portal-wlr - according to https://wiki.hyprland.org/Useful-Utilities/Hyprland-desktop-portal/, conflicts with the hyprland one
-    xdg-desktop-portal-hyprland
-    wofi
-    wofi-emoji
+    rofi-wayland
     # below enables wlr/workspaces module on waybar:
     (waybar.overrideAttrs (oldAttrs: { mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true "]; }))
     bibata-cursors
@@ -309,6 +303,9 @@ in
     wlr-randr
     wlprop
     hyprpicker
+    networkmanagerapplet
+    libnotify
+    swaynotificationcenter
     # ydotool
   ] ++ neovimBuildDeps; # concatenate the neovimBuildDeps list here;
 
@@ -320,9 +317,11 @@ in
   #   enableSSHSupport = true;
   # };
 
+  services.flatpak.enable = true;
+
   programs.hyprland = {
     enable = true;
-    nvidiaPatches = false;
+    nvidiaPatches = true;
     xwayland.enable = true;
   };
 
@@ -355,9 +354,7 @@ in
 
   xdg.portal = {
     enable = true;
-    # wlr.enable = true;
-    # gtk portal needed to make gtk apps happy
-    # extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   # Open ports in the firewall.
