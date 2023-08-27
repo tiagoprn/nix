@@ -2,6 +2,8 @@
 
 ## LG Gram
 
+- [ ] Try merging this configuration with mine: <https://www.reddit.com/r/NixOS/comments/137j18j/comment/ju6h25k/?utm_name=web3xcss>
+
 - [ ] Create a backup of the following folders into the 500GB external SSD drive (formatted as EXT4) using local rsync-time-backup:
     - [ ] /etc
     - [ ] /home/tiago (make sure '.ssh', '.config' and 'scripts' were copied after finishing)
