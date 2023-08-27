@@ -1,4 +1,10 @@
 
+- [x] `configuration.nix`: `hyprland` and `flatpak` remove from the packages list and install from the pattern:
+    ``` bash
+    services.flatpak.enable = true;
+    services.hyprland.enable = true;
+    ```
+
 - [-] Install hyprland (based on the files at `/storage/vendors/dot_files/stephan-raabe`)
     - [x] Bootstrap with initial vimjoyer configuration: <https://www.youtube.com/watch?v=61wGzIv12Ds>
     - [x] Create `/home/tiago/.config/hypr`

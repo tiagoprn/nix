@@ -2,13 +2,6 @@
 
 ## LG Gram
 
-- `configuration.nix`: `hyprland` and `flatpak` remove from the packages list and install from the pattern:
-
-``` bash
-services.flatpak.enable = true;
-services.hyprland.enable = true;
-```
-
 - [ ] nvim is deleting the first line when saving files (bash scripts, markdown files, etc). Probably related to missing lsp components (null-ls and bash-language-server)
 
 - [-] Install hyprland (based on the files at `/storage/vendors/dot_files/stephan-raabe`)
@@ -19,7 +12,8 @@ services.hyprland.enable = true;
             - [-] I created the script to do that but it is still taking too long.
             - [ ] <https://wiki.hyprland.org/Useful-Utilities/Hyprland-desktop-portal/>
 
-- [ ] flatpaks (see ChatGPT on my chat "Install Flatpaks on NixOS")
+- [ ] flatpaks 
+    (see ChatGPT on my chat "Install Flatpaks on NixOS")
     - [ ] gimp
     - [ ] inkscape
     - [ ] firefox (remove the one that is on configuration.nix before)
