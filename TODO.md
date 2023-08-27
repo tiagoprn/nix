@@ -2,6 +2,16 @@
 
 ## LG Gram
 
+- [ ] Create a backup of the following folders into the 500GB external SSD drive (formatted as EXT4) using local rsync-time-backup:
+    - [ ] /etc
+    - [ ] /home/tiago (make sure '.ssh', '.config' and 'scripts' were copied after finishing)
+    - [ ] /storage
+
+- [ ] Reinstall NixOS
+
+- [ ] Copy the relevant files from the backup above to the new setup
+
+
 - [ ] nvim is deleting the first line when saving files (bash scripts, markdown files, etc). Probably related to missing lsp components (null-ls and bash-language-server)
 
 - [-] Install hyprland (based on the files at `/storage/vendors/dot_files/stephan-raabe`)
@@ -12,7 +22,7 @@
             - [-] I created the script to do that but it is still taking too long.
             - [ ] <https://wiki.hyprland.org/Useful-Utilities/Hyprland-desktop-portal/>
 
-- [ ] flatpaks 
+- [ ] flatpaks
     (see ChatGPT on my chat "Install Flatpaks on NixOS")
     - [ ] gimp
     - [ ] inkscape
