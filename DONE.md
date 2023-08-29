@@ -1,4 +1,13 @@
 
+- [x] <http://wiki.hyprland.org/FAQ/#some-of-my-apps-take-a-really-long-time-to-open>
+    - [x] I created the script to do that but it is still taking too long.
+    - [x] <https://wiki.hyprland.org/Useful-Utilities/Hyprland-desktop-portal/>
+
+- [x] Slowness at start:
+    - [x] Post on NixOS reddit my configuration and ask for help there
+    - [x] If nothing else works, try to install hyprland with another desktop or no one at all.
+    - [x] Try merging this configuration with mine: <https://www.reddit.com/r/NixOS/comments/137j18j/comment/ju6h25k/?utm_name=web3xcss>
+
 - [x] Create a backup of the following folders into the 500GB external SSD drive (formatted as EXT4) using local rsync-time-backup:
     - [x] /etc
     - [x] /home/tiago (make sure '.ssh', '.config' and 'scripts' were copied after finishing)

@@ -7,23 +7,11 @@ References:
 <https://wiki.hyprland.org/Nix/Hyprland-on-NixOS/>
 <https://www.youtube.com/watch?v=61wGzIv12Ds>
 
-- [ ] Slowness at start:
-    - [ ] Post on NixOS reddit my configuration and ask for help there
-    - [ ] If nothing else works, try to install hyprland with another desktop or no one at all.
-    - [x] Try merging this configuration with mine: <https://www.reddit.com/r/NixOS/comments/137j18j/comment/ju6h25k/?utm_name=web3xcss>
-
-
-- [-] Install hyprland (based on the files at `/storage/vendors/dot_files/stephan-raabe`)
+- [-] Finish configuration
+    - [ ] theming gtk/qt: https://youtu.be/m_6eqpKrtxk
     - [ ] Configure workspaces on monitors
         - [ ] <https://wiki.hyprland.org/FAQ/#how-do-i-move-my-favorite-workspaces-to-a-new-monitor-when-i-plug-it-in>
         - [ ] <http://wiki.hyprland.org/FAQ/#how-do-i-export-envvars-for-hyprland>
-        - [-] <http://wiki.hyprland.org/FAQ/#some-of-my-apps-take-a-really-long-time-to-open>
-            - [-] I created the script to do that but it is still taking too long.
-            - [ ] <https://wiki.hyprland.org/Useful-Utilities/Hyprland-desktop-portal/>
-
-- [ ] theming gtk/qt: https://youtu.be/m_6eqpKrtxk
-
-- [ ] hyprland + eww: https://github.com/Aylur/dotfiles (check the other videos on my "workflow" playlist to integrate eww with hyprland)
 
 - [ ] Applications:
     - [ ] screen copy/annotation tool: <https://github.com/jtheoof/swappy>
@@ -36,6 +24,8 @@ References:
     - [ ] Scratchpads, smart monitor placement and other tweaks for hyprland: <https://github.com/hyprland-community/pyprland>
     - [ ] retrieve information about windows, workspaces and monitors in a running Hyprland instance. It also offers an event monitor, allowing you to write your own callback functions which execute in response to Hyprland events: <https://github.com/ulinja/hyprpy>
     - [ ] application launchers (like dmenu, rofi): <https://github.com/hyprland-community/awesome-hyprland#runners-menus-and-application-launchers>
+
+- [ ] hyprland + eww: https://github.com/Aylur/dotfiles (check the other videos on my "workflow" playlist to integrate eww with hyprland)
 
 
 ## packages
