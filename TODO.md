@@ -2,17 +2,10 @@
 
 ## LG Gram
 
-- [ ] Try merging this configuration with mine: <https://www.reddit.com/r/NixOS/comments/137j18j/comment/ju6h25k/?utm_name=web3xcss>
-
-- [ ] Create a backup of the following folders into the 500GB external SSD drive (formatted as EXT4) using local rsync-time-backup:
-    - [ ] /etc
-    - [ ] /home/tiago (make sure '.ssh', '.config' and 'scripts' were copied after finishing)
-    - [ ] /storage
-
-- [ ] Reinstall NixOS
-
-- [ ] Copy the relevant files from the backup above to the new setup
-
+- [ ] Slowness at start:
+    - [ ] Post on NixOS reddit my configuration and ask for help there
+    - [ ] If nothing else works, try to install hyprland with another desktop or no one at all.
+    - [x] Try merging this configuration with mine: <https://www.reddit.com/r/NixOS/comments/137j18j/comment/ju6h25k/?utm_name=web3xcss>
 
 - [ ] nvim is deleting the first line when saving files (bash scripts, markdown files, etc). Probably related to missing lsp components (null-ls and bash-language-server)
 

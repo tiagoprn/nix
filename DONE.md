@@ -1,4 +1,13 @@
 
+- [x] Create a backup of the following folders into the 500GB external SSD drive (formatted as EXT4) using local rsync-time-backup:
+    - [x] /etc
+    - [x] /home/tiago (make sure '.ssh', '.config' and 'scripts' were copied after finishing)
+    - [x] /storage
+
+- [x] Reinstall NixOS
+
+- [x] Copy the relevant files from the backup above to the new setup
+
 - [x] `configuration.nix`: `hyprland` and `flatpak` remove from the packages list and install from the pattern:
     ``` bash
     services.flatpak.enable = true;
