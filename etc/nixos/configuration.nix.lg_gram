@@ -1,4 +1,4 @@
-
+# Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
@@ -38,8 +38,8 @@ in
   };
 
   # Enable swap on luks
-  boot.initrd.luks.devices."luks-c608d423-4b40-4212-ade8-dba67ee3b460".device = "/dev/disk/by-uuid/c608d423-4b40-4212-ade8-dba67ee3b460";
-  boot.initrd.luks.devices."luks-c608d423-4b40-4212-ade8-dba67ee3b460".keyFile = "/crypto_keyfile.bin";
+  boot.initrd.luks.devices."luks-b7d87692-69e8-4fb0-abd7-73dca1955c10".device = "/dev/disk/by-uuid/b7d87692-69e8-4fb0-abd7-73dca1955c10";
+  boot.initrd.luks.devices."luks-b7d87692-69e8-4fb0-abd7-73dca1955c10".keyFile = "/crypto_keyfile.bin";
 
   networking.hostName = "nixos-lab"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -97,8 +97,7 @@ in
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -130,6 +129,12 @@ in
   #   };
   # };
 
+
+  fonts.fonts = with pkgs; [
+    nerdfonts
+    meslo-lgs-nf
+  ];
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.tiago = {
     isNormalUser = true;
@@ -137,7 +142,7 @@ in
     extraGroups = [ "networkmanager" "wheel" "input" ];
     packages = with pkgs; [
       # TODO: move to section environment.systemPackages below
-      firefox
+      firefox-wayland
       htop
       bash-completion
       netdata
@@ -196,7 +201,6 @@ in
       asciidoc
       zathura
       font-awesome
-      nerdfonts
       navi
       mosh
       fzf
@@ -237,17 +241,6 @@ in
     ];
   };
 
-  # Creates (or replaces if it exists) a symlink for ~tiago/.bash_profile to /dev/stdin
-  # and then writes the specified content into it.
-#   systemd.tmpfiles.rules = [
-#     "L+ /home/tiago/.bash_profile - - - - /dev/stdin <<EOF
-#     if [ -f ~/.bashrc ]; then
-#       source ~/.bashrc
-#     fi
-# EOF
-#     "
-#   ];
-
   # Add a static file to the system configuration
   environment.etc."bash_profile_for_tiago".text = ''
     if [ -f ~/.bashrc ]; then
@@ -282,7 +275,6 @@ in
     gitui
     git-sync
     difftastic
-    wl-clipboard
     # texlive-combined-full
     # texlive-combined-tetex
     lua-language-server
@@ -291,14 +283,23 @@ in
     shfmt
     xz
     w3m
+    wl-clipboard
     rofi-wayland
     # below enables wlr/workspaces module on waybar:
     (waybar.overrideAttrs (oldAttrs: { mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true "]; }))
+    gsettings-desktop-schemas
+    xdg-utils
     bibata-cursors
     bibata-cursors-translucent
+    wayland-protocols
     wayland-utils
+    gnome.adwaita-icon-theme
+    gnome.gnome-themes-extra
+    qt5.qtwayland
+    qt6.qmake
     qt6.qtwayland
-    libsForQt5.qt5.qtwayland
+    adwaita-qt
+    adwaita-qt6
     wlroots
     wlr-randr
     wlprop
@@ -319,26 +320,37 @@ in
   # };
 
   services.flatpak.enable = true;
+  services.dbus.enable = true;
+  services.gvfs.enable = true;
 
   programs.hyprland = {
     enable = true;
-    nvidiaPatches = true;
-    xwayland.enable = true;
+    xwayland = {
+      enable = true;
+    };
   };
 
   environment.sessionVariables = {
+    POLKIT_AUTH_AGENT = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+    GSETTINGS_SCHEMA_DIR = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}/glib-2.0/schemas";
+    MOZ_ENABLE_WAYLAND = "1";
+    SDL_VIDEODRIVER = "wayland";
+    _JAVA_AWT_WM_NONREPARENTING = "1";
+    CLUTTER_BACKEND = "wayland";
+    WLR_RENDERER = "vulkan";
+    GTK_USE_PORTAL = "1";
+    NIXOS_XDG_OPEN_USE_PORTAL = "1";
     # If your cursor becomes invisible
     WLR_NO_HARDWARE_CURSORS = "1";
     # Hint electron apps to use wayland
     NIXOS_OZONE_WL = "1";
+    # Below is a fix to force OBS docks and integrations all work under xwayland to bypass bugs on wayland. Enable only if OBS does not behave well.
+    # QT_QPA_PLATFORM = "xcb obs"
   };
 
   hardware = {
       # Opengl
       opengl.enable = true;
-
-      # Most wayland compositors need this
-      nvidia.modesetting.enable = true;
   };
 
 
@@ -351,11 +363,6 @@ in
       PermitRootLogin = "without-password";
       PasswordAuthentication = false;
     };
-  };
-
-  xdg.portal = {
-    enable = true;
-    # extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   # Open ports in the firewall.
