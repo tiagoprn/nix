@@ -1,4 +1,6 @@
 
+- [x] Test the desktop portal is working with firefox-wayland - it is, I validated it opening the file choose to select where to download the NixOS ISO from <https://nixos.org/download.html#nixos-iso>.
+
 - [x] <http://wiki.hyprland.org/FAQ/#some-of-my-apps-take-a-really-long-time-to-open>
     - [x] I created the script to do that but it is still taking too long.
     - [x] <https://wiki.hyprland.org/Useful-Utilities/Hyprland-desktop-portal/>
