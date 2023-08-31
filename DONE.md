@@ -1,4 +1,9 @@
 
+- [x] https://github.com/muesli/duf
+- [x] https://github.com/Byron/dua-cli
+- [x] `direnv` load and unload environment variables depending on the current directory.
+- [x] `yq`: a lightweight and portable command-line YAML processor ("jq" for YAML files)
+
 - [x] Test the desktop portal is working with firefox-wayland - it is, I validated it opening the file choose to select where to download the NixOS ISO from <https://nixos.org/download.html#nixos-iso>.
 
 - [x] <http://wiki.hyprland.org/FAQ/#some-of-my-apps-take-a-really-long-time-to-open>
