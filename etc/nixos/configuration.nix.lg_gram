@@ -130,7 +130,7 @@ in
   # };
 
 
-  fonts.fonts = with pkgs; [
+  fonts.packages= with pkgs; [
     nerdfonts
     meslo-lgs-nf
   ];
@@ -308,6 +308,7 @@ in
     libnotify
     swaynotificationcenter
     cliphist
+    slurp
     # ydotool
   ] ++ neovimBuildDeps; # concatenate the neovimBuildDeps list here;
 
@@ -330,6 +331,25 @@ in
     };
   };
 
+  xdg.portal = {
+    enable = true;
+    # extraPortals = with pkgs; [
+    #   xdg-desktop-portal-gtk
+    #   xdg-desktop-portal-hyprland
+    # ];
+    # wlr = {
+    #   enable = true;
+    #   settings = {
+    #     screencast = {
+    #       output_name = "eDP-1";
+    #       max_fps = 30;
+    #       chooser_type = "simple";
+    #       chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+    #     };
+    #   };
+    # };
+  };
+
   environment.sessionVariables = {
     POLKIT_AUTH_AGENT = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
     GSETTINGS_SCHEMA_DIR = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}/glib-2.0/schemas";
@@ -338,7 +358,7 @@ in
     _JAVA_AWT_WM_NONREPARENTING = "1";
     CLUTTER_BACKEND = "wayland";
     WLR_RENDERER = "vulkan";
-    GTK_USE_PORTAL = "1";
+    # GTK_USE_PORTAL = "1";  # must not be enabled, causes problems with some apps: https://discourse.nixos.org/t/open-links-from-flatpak-via-host-firefox/15465/2
     NIXOS_XDG_OPEN_USE_PORTAL = "1";
     # If your cursor becomes invisible
     WLR_NO_HARDWARE_CURSORS = "1";

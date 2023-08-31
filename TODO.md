@@ -8,10 +8,11 @@ References:
 <https://www.youtube.com/watch?v=61wGzIv12Ds>
 
 - [-] Finish configuration
-    - [ ] theming gtk/qt: https://youtu.be/m_6eqpKrtxk
     - [ ] Configure workspaces on monitors
         - [ ] <https://wiki.hyprland.org/FAQ/#how-do-i-move-my-favorite-workspaces-to-a-new-monitor-when-i-plug-it-in>
         - [ ] <http://wiki.hyprland.org/FAQ/#how-do-i-export-envvars-for-hyprland>
+    - [ ] theming gtk/qt (requires home manager): <https://youtu.be/m_6eqpKrtxk>
+
 
 - [ ] Applications:
     - [ ] screen copy/annotation tool: <https://github.com/jtheoof/swappy>
@@ -24,6 +25,8 @@ References:
     - [ ] Scratchpads, smart monitor placement and other tweaks for hyprland: <https://github.com/hyprland-community/pyprland>
     - [ ] retrieve information about windows, workspaces and monitors in a running Hyprland instance. It also offers an event monitor, allowing you to write your own callback functions which execute in response to Hyprland events: <https://github.com/ulinja/hyprpy>
     - [ ] application launchers (like dmenu, rofi): <https://github.com/hyprland-community/awesome-hyprland#runners-menus-and-application-launchers>
+    - [ ] Install home manager
+
 
 - [ ] hyprland + eww: https://github.com/Aylur/dotfiles (check the other videos on my "workflow" playlist to integrate eww with hyprland)
 
