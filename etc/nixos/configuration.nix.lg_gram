@@ -79,7 +79,11 @@ in
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
-    xkbVariant = "intl";
+    # the RIGHT ALT key (often labeled "AltGr") provides access to additional characters.
+    # To produce the "ç" (cedilla) character using the "altgr-intl" variant:
+    # 	You press AltGr + , (comma) to get "ç".
+    # 	For the uppercase "Ç", it's typically AltGr + Shift + ,.
+    xkbVariant = "altgr-intl";
   };
 
   # Configure console keymap
@@ -283,6 +287,10 @@ in
     shfmt
     xz
     w3m
+    duf  # disk usage/free utility
+    dua  # disk usage of directories
+    direnv  # load and unload environment variables depending on the current directory
+    yq  # YAML processor ("jq" for YAML files)
     wl-clipboard
     rofi-wayland
     # below enables wlr/workspaces module on waybar:
@@ -308,7 +316,12 @@ in
     libnotify
     swaynotificationcenter
     cliphist
-    slurp
+    grim  # screenshot
+    slurp  # screen area selection
+    imagemagick
+    swappy  # snapshot editing/drawing tool
+    wf-recorder  # screen video recording
+
     # ydotool
   ] ++ neovimBuildDeps; # concatenate the neovimBuildDeps list here;
 
