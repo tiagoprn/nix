@@ -11,5 +11,8 @@ nix-conf-lg:  ## copy /etc/nixos/configuration.nix to here (LG Gram)
 hyprland:  ## copy hyperland conf to here
 	cp ~/.config/hypr/hyprland.conf home/.config/hypr/hyprland.conf
 
+todo:  ## open the TODO LIST on nvim
+	nvim TODO.md
+
 all: nix-conf-lg hyprland  ## copy all configuration to here
 	echo "Successfully finished."
