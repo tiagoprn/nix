@@ -11,9 +11,6 @@ References:
     - [ ] Scratchpads, smart monitor placement and other tweaks for hyprland: <https://github.com/hyprland-community/pyprland>
     - [ ] hyprland keys cheatsheet: <https://github.com/hyprland-community/Hyprkeys>
     - [ ] retrieve information about windows, workspaces and monitors in a running Hyprland instance. It also offers an event monitor, allowing you to write your own callback functions which execute in response to Hyprland events: <https://github.com/ulinja/hyprpy>
-    - [ ] application launchers (like dmenu, rofi): <https://github.com/hyprland-community/awesome-hyprland#runners-menus-and-application-launchers>
-    - [x] screen copy/annotation tool: <https://github.com/jtheoof/swappy>
-    - [x] screen recorders (video): <https://github.com/russelltg/wl-screenrec> or <https://github.com/ammen99/wf-recorder>
 
 - [-] Finish configuration
     - [ ] Configure workspaces on monitors

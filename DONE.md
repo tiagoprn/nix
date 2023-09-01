@@ -1,4 +1,7 @@
 
+- [x] screen copy/annotation tool: <https://github.com/jtheoof/swappy>
+- [x] screen recorders (video): <https://github.com/russelltg/wl-screenrec> or <https://github.com/ammen99/wf-recorder>
+
 - [x] clipboard history manager: <https://github.com/sentriz/cliphist>
     - [x] Error "Failed to run script: example-script" when copying contents to the clipboard
         - [x] remove libnotify from configuration.nix
