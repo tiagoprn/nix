@@ -9,6 +9,10 @@ References:
 
 - [-] Applications:
     - [-] clipboard history manager: <https://github.com/sentriz/cliphist>
+        - [-] Error "Failed to run script: example-script" when copying contents to the clipboard
+            - [x] remove libnotify from configuration.nix
+            - [ ] test swaync and swaync-client . If both work, add them to hyprland.conf exec to start when logging in.
+
     - [ ] Scratchpads, smart monitor placement and other tweaks for hyprland: <https://github.com/hyprland-community/pyprland>
     - [ ] hyprland keys cheatsheet: <https://github.com/hyprland-community/Hyprkeys>
     - [ ] notifications: <https://github.com/ErikReider/SwayNotificationCenter> or <https://github.com/emersion/mako>
