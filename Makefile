@@ -11,8 +11,11 @@ nix-conf-lg:  ## copy /etc/nixos/configuration.nix to here (LG Gram)
 hyprland:  ## copy hyperland conf to here
 	cp ~/.config/hypr/hyprland.conf home/.config/hypr/hyprland.conf
 
+scripts:  # sync scripts to here
+	rsync -rchzPvi --progress --delete --delete-excluded ~/scripts/* home/scripts/
+
 todo:  ## open the TODO LIST on nvim
 	nvim TODO.md
 
-all: nix-conf-lg hyprland  ## copy all configuration to here
+all: nix-conf-lg hyprland scripts  ## copy all configuration to here
 	echo "Successfully finished."

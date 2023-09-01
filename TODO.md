@@ -8,9 +8,9 @@ References:
 <https://www.youtube.com/watch?v=61wGzIv12Ds>
 
 - [-] Applications:
+    - [-] clipboard history manager: <https://github.com/sentriz/cliphist>
     - [ ] Scratchpads, smart monitor placement and other tweaks for hyprland: <https://github.com/hyprland-community/pyprland>
     - [ ] hyprland keys cheatsheet: <https://github.com/hyprland-community/Hyprkeys>
-    - [ ] clipboard history manager: <https://github.com/sentriz/cliphist>
     - [ ] notifications: <https://github.com/ErikReider/SwayNotificationCenter> or <https://github.com/emersion/mako>
     - [ ] retrieve information about windows, workspaces and monitors in a running Hyprland instance. It also offers an event monitor, allowing you to write your own callback functions which execute in response to Hyprland events: <https://github.com/ulinja/hyprpy>
     - [ ] application launchers (like dmenu, rofi): <https://github.com/hyprland-community/awesome-hyprland#runners-menus-and-application-launchers>
@@ -52,6 +52,10 @@ References:
     - [ ] inkscape
     - [ ] firefox (remove the one that is on configuration.nix before)
 
+
+## docker
+
+Install from this instrustions: <https://nixos.wiki/wiki/Docker>
 
 ## nvim
 
