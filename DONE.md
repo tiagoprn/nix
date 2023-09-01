@@ -1,4 +1,9 @@
 
+- [x] clipboard history manager: <https://github.com/sentriz/cliphist>
+    - [x] Error "Failed to run script: example-script" when copying contents to the clipboard
+        - [x] remove libnotify from configuration.nix
+        - [x] test swaync and swaync-client . If both work, add them to hyprland.conf exec to start when logging in.
+
 - [x] https://github.com/muesli/duf
 - [x] https://github.com/Byron/dua-cli
 - [x] `direnv` load and unload environment variables depending on the current directory.

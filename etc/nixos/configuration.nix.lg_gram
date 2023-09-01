@@ -314,7 +314,7 @@ in
     hyprpicker
     networkmanagerapplet
     libnotify
-    swaynotificationcenter
+    mako
     cliphist
     grim  # screenshot
     slurp  # screen area selection

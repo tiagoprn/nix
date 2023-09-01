@@ -8,14 +8,8 @@ References:
 <https://www.youtube.com/watch?v=61wGzIv12Ds>
 
 - [-] Applications:
-    - [-] clipboard history manager: <https://github.com/sentriz/cliphist>
-        - [-] Error "Failed to run script: example-script" when copying contents to the clipboard
-            - [x] remove libnotify from configuration.nix
-            - [ ] test swaync and swaync-client . If both work, add them to hyprland.conf exec to start when logging in.
-
     - [ ] Scratchpads, smart monitor placement and other tweaks for hyprland: <https://github.com/hyprland-community/pyprland>
     - [ ] hyprland keys cheatsheet: <https://github.com/hyprland-community/Hyprkeys>
-    - [ ] notifications: <https://github.com/ErikReider/SwayNotificationCenter> or <https://github.com/emersion/mako>
     - [ ] retrieve information about windows, workspaces and monitors in a running Hyprland instance. It also offers an event monitor, allowing you to write your own callback functions which execute in response to Hyprland events: <https://github.com/ulinja/hyprpy>
     - [ ] application launchers (like dmenu, rofi): <https://github.com/hyprland-community/awesome-hyprland#runners-menus-and-application-launchers>
     - [x] screen copy/annotation tool: <https://github.com/jtheoof/swappy>
