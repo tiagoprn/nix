@@ -11,8 +11,7 @@
     },
     "volume": {
       "command": "pavucontrol",
-      "animation": "fromTop",
-      "margin": 50
+      "animation": "fromTop"
     }
   }
 }
