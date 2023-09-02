@@ -21,6 +21,18 @@ let
     pkgs.makeWrapper
     pkgs.gettext
   ];
+
+  # Pin to the specific nixpkgs commit
+  myNixpkgs = pkgs.fetchFromGitHub {
+    owner = "NixOS";
+    repo = "nixpkgs";
+    rev = "ad128a3";  # https://github.com/kovidgoyal/kitty/releases/tag/v0.25.2
+    sha256 = "duG2Tw4u1LwWEs91zR3W5W8L6AAEuRvUaqop0M5lyeU="; # nix-prefetch-url --unpack https://github.com/kovidgoyal/kitty/releases/download/v0.25.2/kitty-0.25.2.tar.xz
+  };
+
+  # Use the pinned nixpkgs to get the old kitty
+  old_kitty = (import myNixpkgs {}).kitty;
+
 in
 {
   imports =
@@ -212,7 +224,7 @@ in
       bat
       entr
       alacritty
-      kitty
+      old_kitty  # that is because 0.29.2 did not work with wayland: https://github.com/kovidgoyal/kitty/issues/5456
       clifm
     ] ++ [
       libunistring
