@@ -189,6 +189,7 @@ in
       pulsemixer
       meld
       starship
+      figlet
 
       # NOTE: to enable my PDE with nvim
       difftastic

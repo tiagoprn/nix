@@ -1,0 +1,33 @@
+session_name: TASKS
+windows:
+  - window_name: editor
+    layout: f83e,160x39,0,0{103x39,0,0[103x30,0,0,17,103x8,0,31,30],56x39,104,0[56x16,104,0,19,56x22,104,17,21]}
+    start_directory: /storage/docs/tasks
+    panes:
+      - shell_command:
+        - nvim index.md
+        focus: true
+      - shell_command:
+        - cd $HOME/.local/share/nvim/sessions && clear && ls
+      - shell_command:
+        - ncal -3w
+      - shell_command:
+        - cd /storage/docs/tasks/ROADMAPS/2023/weekly && clear && pwd
+  - window_name: git
+    layout: even-vertical
+    start_directory: /storage/docs/tasks
+    shell_command_before:
+      - clear
+      - source ~/.bashrc
+    panes:
+      - shell_command:
+        - /storage/src/nix/home/scripts/git-ui-with-ssh-agent.sh .
+  - window_name: scratchpad
+    layout: even-vertical
+    start_directory: /storage/docs/tasks
+    shell_command_before:
+      - clear
+      - source ~/.bashrc
+    panes:
+      - shell_command:
+        - ls

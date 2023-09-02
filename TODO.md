@@ -18,6 +18,7 @@ References:
 
 - [-] Finish configuration
     - [ ] Configure workspaces on monitors
+        - [ ] Create a named "share" workspace when sharing my screen
         - [ ] <https://wiki.hyprland.org/FAQ/#how-do-i-move-my-favorite-workspaces-to-a-new-monitor-when-i-plug-it-in>
         - [ ] <http://wiki.hyprland.org/FAQ/#how-do-i-export-envvars-for-hyprland>
 
