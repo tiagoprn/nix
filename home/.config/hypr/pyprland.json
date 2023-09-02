@@ -5,9 +5,7 @@
   "scratchpads": {
     "term": {
       "command": "~/scripts/terminal-scratchpad.sh",
-      "animation": "fromTop",
-      "margin": 50,
-      "unfocus": "hide"
+      "animation": "fromTop"
     },
     "volume": {
       "command": "pavucontrol",
