@@ -14,4 +14,9 @@
 # alacritty -e /run/current-system/sw/bin/bash -c "tmux" --hold
 
 # alacritty --hold
+echo "----------------------------------------------------------------------"
+echo "THIS IS AN ALACRITTY SCRATCHPAD."
+echo "Type 'super+shift+s to move it to the special (scratchpad) workspace.'"
+echo -e "----------------------------------------------------------------------\n\n"
+sleep 5
 alacritty -e /run/current-system/sw/bin/bash -c "$HOME/scripts/tmuxp-notes_tasks_n_reminders.sh" --hold
