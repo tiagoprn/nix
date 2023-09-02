@@ -4,16 +4,13 @@ windows:
     layout: tiled
     start_directory: /storage/docs/reminders
     panes:
-      - clear && ncal -3w -M
+      - clear && cal -3w
       - watch -n 1 "/storage/src/dot_files/text_snippets/now.sh | figlet -c"
       - /storage/docs/reminders/scripts/notify-personal.sh && watch -n 1 /storage/docs/reminders/scripts/personal.sh
       - /storage/docs/reminders/scripts/notify-tds.sh && watch -n 1 /storage/docs/reminders/scripts/tds.sh
   - window_name: editor
     layout: even-vertical
     start_directory: /storage/docs/reminders
-    shell_command_before:
-      - clear
-      - source ~/.bashrc
     panes:
       - shell_command:
         - nvim personal.rem
@@ -21,9 +18,6 @@ windows:
   - window_name: git
     layout: even-vertical
     start_directory: /storage/docs/reminders
-    shell_command_before:
-      - clear
-      - source ~/.bashrc
     panes:
       - shell_command:
         - /storage/src/nix/home/scripts/git-ui-with-ssh-agent.sh .

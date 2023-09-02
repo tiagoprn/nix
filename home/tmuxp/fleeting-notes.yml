@@ -5,23 +5,17 @@ windows:
     start_directory: /storage/docs/fleeting-notes
     panes:
       - shell_command:
-        - create-fleeting-note.sh
+        - ls -lha
         focus: true
   - window_name: git
     layout: even-vertical
     start_directory: /storage/docs/fleeting-notes
-    shell_command_before:
-      - clear
-      - source ~/.bashrc
     panes:
       - shell_command:
-        - /storage/src/dot_files/git-ui-with-ssh-agent.sh .
+        - /storage/src/nix/home/scripts/git-ui-with-ssh-agent.sh .
   - window_name: scratchpad
     layout: even-vertical
     start_directory: /storage/docs/fleeting-notes
-    shell_command_before:
-      - clear
-      - source ~/.bashrc
     panes:
       - shell_command:
         - ls

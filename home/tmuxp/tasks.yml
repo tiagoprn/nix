@@ -10,24 +10,18 @@ windows:
       - shell_command:
         - cd $HOME/.local/share/nvim/sessions && clear && ls
       - shell_command:
-        - ncal -3w
+        - cal -3w
       - shell_command:
         - cd /storage/docs/tasks/ROADMAPS/2023/weekly && clear && pwd
   - window_name: git
     layout: even-vertical
     start_directory: /storage/docs/tasks
-    shell_command_before:
-      - clear
-      - source ~/.bashrc
     panes:
       - shell_command:
         - /storage/src/nix/home/scripts/git-ui-with-ssh-agent.sh .
   - window_name: scratchpad
     layout: even-vertical
     start_directory: /storage/docs/tasks
-    shell_command_before:
-      - clear
-      - source ~/.bashrc
     panes:
       - shell_command:
         - ls

@@ -1,7 +1,7 @@
 .PHONY: help status nets
 
 PROJECT_ROOT=$(shell pwd)
-CONFIG_DIRS := mako kitty hypr swappy waybar
+CONFIG_DIRS := mako kitty hypr swappy waybar alacritty
 
 
 help:  ## This help

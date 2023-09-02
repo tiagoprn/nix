@@ -22,16 +22,18 @@ let
     pkgs.gettext
   ];
 
-  # Pin to the specific nixpkgs commit
-  myNixpkgs = pkgs.fetchFromGitHub {
-    owner = "NixOS";
-    repo = "nixpkgs";
-    rev = "ad128a3";  # https://github.com/kovidgoyal/kitty/releases/tag/v0.25.2
-    sha256 = "duG2Tw4u1LwWEs91zR3W5W8L6AAEuRvUaqop0M5lyeU="; # nix-prefetch-url --unpack https://github.com/kovidgoyal/kitty/releases/download/v0.25.2/kitty-0.25.2.tar.xz
-  };
+  # Gotten the revision for 0.25.2 here:
+  # https://lazamar.co.uk/nix-versions/?channel=nixpkgs-unstable&package=kitty
+  # (clicking the link to the revision open a page with the code below)
+  old_kitty_pkg = import (builtins.fetchGit {
+    # Descriptive name to make the store path easier to identify
+    name = "my-old-revision";
+    url = "https://github.com/NixOS/nixpkgs/";
+    ref = "refs/heads/nixpkgs-unstable";
+    rev = "c2c0373ae7abf25b7d69b2df05d3ef8014459ea3";
+  }) {};
 
-  # Use the pinned nixpkgs to get the old kitty
-  old_kitty = (import myNixpkgs {}).kitty;
+  old_kitty = old_kitty_pkg.kitty;
 
 in
 {
@@ -223,8 +225,11 @@ in
       fzf
       bat
       entr
+      # old_kitty  # that is because 0.29.2 did not work with wayland: https://github.com/kovidgoyal/kitty/issues/5456
+      kitty
       alacritty
-      old_kitty  # that is because 0.29.2 did not work with wayland: https://github.com/kovidgoyal/kitty/issues/5456
+      wezterm
+      foot
       clifm
     ] ++ [
       libunistring
@@ -334,6 +339,8 @@ in
     imagemagick
     swappy  # snapshot editing/drawing tool
     wf-recorder  # screen video recording
+    remind
+    util-linux  # provides ncal
 
     # ydotool
   ] ++ neovimBuildDeps; # concatenate the neovimBuildDeps list here;

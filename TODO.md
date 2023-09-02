@@ -10,6 +10,7 @@ References:
 - [-] Applications:
     - [-] Scratchpads, smart monitor placement and other tweaks for hyprland: <https://github.com/hyprland-community/pyprland>
         - [ ] configure my X11 scratchpad
+            - [ ] alacritty or wezterm instead of kitty (do NOT set window class, since I will use it only for the scratchpad)
         - [ ] test the other commands:
             - [ ] <https://github.com/hyprland-community/pyprland/wiki/Getting-started#configuring>
             - [ ] <https://github.com/hyprland-community/pyprland/wiki/Plugins>
