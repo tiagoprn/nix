@@ -4,7 +4,7 @@
   },
   "scratchpads": {
     "term": {
-      "command": "~/scripts/kitty/terminal-scratchpad.sh",
+      "command": "~/scripts/terminal-scratchpad.sh",
       "animation": "fromTop",
       "margin": 50,
       "unfocus": "hide"
