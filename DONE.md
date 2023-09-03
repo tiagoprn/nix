@@ -1,4 +1,11 @@
 
+- [x] Scratchpads, smart monitor placement and other tweaks for hyprland: <https://github.com/hyprland-community/pyprland>
+    - [x] configure my X11 scratchpad
+        - [x] alacritty or wezterm instead of kitty (do NOT set window class, since I will use it only for the scratchpad)
+    - [x] test the other commands:
+        - [x] <https://github.com/hyprland-community/pyprland/wiki/Getting-started#configuring>
+        - [x] <https://github.com/hyprland-community/pyprland/wiki/Plugins>
+
 - [x] screen copy/annotation tool: <https://github.com/jtheoof/swappy>
 - [x] screen recorders (video): <https://github.com/russelltg/wl-screenrec> or <https://github.com/ammen99/wf-recorder>
 

@@ -8,14 +8,7 @@ References:
 <https://www.youtube.com/watch?v=61wGzIv12Ds>
 
 - [-] Applications:
-    - [-] Scratchpads, smart monitor placement and other tweaks for hyprland: <https://github.com/hyprland-community/pyprland>
-        - [ ] configure my X11 scratchpad
-            - [ ] alacritty or wezterm instead of kitty (do NOT set window class, since I will use it only for the scratchpad)
-        - [ ] test the other commands:
-            - [ ] <https://github.com/hyprland-community/pyprland/wiki/Getting-started#configuring>
-            - [ ] <https://github.com/hyprland-community/pyprland/wiki/Plugins>
     - [ ] hyprland keys cheatsheet: <https://github.com/hyprland-community/Hyprkeys>
-    - [ ] retrieve information about windows, workspaces and monitors in a running Hyprland instance. It also offers an event monitor, allowing you to write your own callback functions which execute in response to Hyprland events: <https://github.com/ulinja/hyprpy>
 
 - [-] Finish configuration
     - [ ] Configure workspaces on monitors
@@ -80,6 +73,8 @@ Install from this instrustions: <https://nixos.wiki/wiki/Docker>
 
 
 ## Low priority enhancements
+
+- [ ] retrieve information about windows, workspaces and monitors in a running Hyprland instance. It also offers an event monitor, allowing you to write your own callback functions which execute in response to Hyprland events: <https://github.com/ulinja/hyprpy>
 
 - [ ] theming gtk/qt (requires home manager): <https://youtu.be/m_6eqpKrtxk>
 
