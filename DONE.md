@@ -1,3 +1,27 @@
+## flatpaks
+- [ ] How to install packages:
+    ``` bash
+    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    flatpak update
+    flatpak search bustle
+    flatpak install flathub org.freedesktop.Bustle
+    flatpak run org.freedesktop.Bustle
+    ```
+- [x] Install the packages below:
+    - [x] com.bitwarden.desktop
+    - [x] ch.protonmail.protonmail-bridge
+    - [x] com.github.tchx84.Flatseal
+    - [x] com.obsproject.Studio
+    - [-] com.slack.Slack
+    - [x] com.spotify.Client
+    - [x] io.github.arunsivaramanneo.GPUViewer
+    - [x] md.obsidian.Obsidian
+    - [x] org.chromium.Chromium
+    - [x] org.telegram.desktop
+    - [x] us.zoom.Zoom
+    - [x] com.github.flxzt.rnote - Rnote is an open-source vector-based drawing app for sketching, handwritten notes and to annotate documents and pictures. It is targeted at students, teachers and those who own a drawing tablet and provides features like Pdf and picture import and export, an infinite canvas and an adaptive UI for big and small screens.
+    - [x] gimp
+    - [x] inkscape
 
 - [x] Scratchpads, smart monitor placement and other tweaks for hyprland: <https://github.com/hyprland-community/pyprland>
     - [x] configure my X11 scratchpad

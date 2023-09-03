@@ -17,36 +17,6 @@ References:
         - [ ] <http://wiki.hyprland.org/FAQ/#how-do-i-export-envvars-for-hyprland>
 
 
-## flatpaks
-
-(see ChatGPT on my chat "Install Flatpaks on NixOS")
-
-- [ ] How to install packages:
-    ``` bash
-    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    flatpak update
-    flatpak search bustle
-    flatpak install flathub org.freedesktop.Bustle
-    flatpak run org.freedesktop.Bustle
-    ```
-- [ ] Install the packages below:
-    - [ ] ch.protonmail.protonmail-bridge
-    - [ ] com.bitwarden.desktop
-    - [ ] com.github.tchx84.Flatseal
-    - [ ] com.obsproject.Studio
-    - [ ] com.slack.Slack
-    - [ ] com.spotify.Client
-    - [ ] io.github.arunsivaramanneo.GPUViewer
-    - [ ] md.obsidian.Obsidian
-    - [ ] org.chromium.Chromium
-    - [ ] org.telegram.desktop
-    - [ ] us.zoom.Zoom
-    - [ ] com.github.flxzt.rnote - Rnote is an open-source vector-based drawing app for sketching, handwritten notes and to annotate documents and pictures. It is targeted at students, teachers and those who own a drawing tablet and provides features like Pdf and picture import and export, an infinite canvas and an adaptive UI for big and small screens.
-    - [ ] gimp
-    - [ ] inkscape
-    - [ ] firefox (remove the one that is on configuration.nix before)
-
-
 ## docker
 
 Install from this instrustions: <https://nixos.wiki/wiki/Docker>

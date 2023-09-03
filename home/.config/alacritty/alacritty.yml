@@ -18,7 +18,7 @@ env:
 
 window:
   dynamic_title: false
-  opacity: 0.8
+  opacity: 0.4
   # Window dimensions (changes require restart)
   #
   # Specified in number of columns/lines, not pixels.
