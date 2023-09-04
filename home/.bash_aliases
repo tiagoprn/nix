@@ -87,3 +87,8 @@ alias ssh-no-host-checking='ssh -o "UserKnownHostsFile=/dev/null" -o "StrictHost
 alias compositor='/storage/src/devops/bin/toggle_compositor.sh'
 alias xsession='[[ ! -z "$DISPLAY" ]] && source $HOME/.xsession'
 alias ls='ls -a --color'
+
+alias stream01_activate_capture='sudo modprobe v4l2loopback exclusive_caps=1 card_label=WfRecorder; sudo modinfo v4l2loopback'
+alias stream02_01_capture_full='rm /tmp/fifo.mkv ; mkfifo /tmp/fifo.mkv ; wf-recorder -f /tmp/fifo.mkv -x yuv420p -o eDP-1 --audio; '
+alias stream02_02_capture_selection='rm /tmp/fifo.mkv ; mkfifo /tmp/fifo.mkv ; wf-recorder -g "$(slurp)" -f /tmp/fifo.mkv --audio'
+alias stream03_pipe_to_virtual_camera='ffmpeg -re -i /tmp/fifo.mkv -pix_fmt yuv420p -c:v rawvideo -c:a pcm_s16le -f v4l2 /dev/video0'
