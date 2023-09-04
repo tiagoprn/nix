@@ -8,6 +8,20 @@ References:
 <https://www.youtube.com/watch?v=61wGzIv12Ds>
 
 - [-] Applications:
+    - [ ] zoom
+        - [ ] try this solution from here <https://www.reddit.com/r/wayland/comments/lcctwo/screen_sharing_on_wayland/>:
+            - [ ] compile the module for NixOS (see my talk "Load v4l2loopback on NixOS" with ChatGPT)
+            - [ ] share my screen as a virtual webcam. That should work with any software that can switch cameras, even if their screen share feature is broken.
+            ``` bash
+
+            sudo modprobe v4l2loopback exclusive_caps=1 card_label=WfRecorder
+
+            wf-recorder --muxer=v4l2 --codec=rawvideo --file=/dev/video4 -x yuv420p -o eDP-1
+
+            ```
+        - [ ] If the solution above does not work, I will have to logoff from hyprland and logon on bspwm with xorg to use zoom and be able to share my screen - the good part is that my tmux sessions are preserved when doing logoff from hyprland and login into minimal bspwm (copy the configuration and bindings for a minimal working bspwm from my dot_files repo.)
+                - [ ] see how to hide obs window on that case
+
     - [ ] hyprland keys cheatsheet: <https://github.com/hyprland-community/Hyprkeys>
 
 - [-] Finish configuration
@@ -43,6 +57,8 @@ Install from this instrustions: <https://nixos.wiki/wiki/Docker>
 
 
 ## Low priority enhancements
+
+- [ ] wallpapers: <https://wiki.hyprland.org/Useful-Utilities/Wallpapers/>
 
 - [ ] retrieve information about windows, workspaces and monitors in a running Hyprland instance. It also offers an event monitor, allowing you to write your own callback functions which execute in response to Hyprland events: <https://github.com/ulinja/hyprpy>
 
