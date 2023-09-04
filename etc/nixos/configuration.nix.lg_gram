@@ -55,14 +55,7 @@ in
   boot.initrd.luks.devices."luks-b7d87692-69e8-4fb0-abd7-73dca1955c10".device = "/dev/disk/by-uuid/b7d87692-69e8-4fb0-abd7-73dca1955c10";
   boot.initrd.luks.devices."luks-b7d87692-69e8-4fb0-abd7-73dca1955c10".keyFile = "/crypto_keyfile.bin";
 
-  # Ensure the module package is installed
-  # nixpkgs.config.packageOverrides = pkgs: {
-  #   linuxPackages = pkgs.linuxPackages.extend (self: super: {
-  #     v4l2loopback = pkgs.callPackage <nixpkgs/pkgs/os-specific/linux/v4l2loopback/default.nix> {};
-  #   });
-  # };
   # Add module to the boot kernel modules
-  # boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
   boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
   boot.kernelModules = [ "v4l2loopback" ];  # these module allows creating a virtual webcam for sharing my screen on Zoom and other software
 
@@ -158,6 +151,21 @@ in
   #   };
   # };
 
+  nixpkgs.config.packageOverrides = pkgs: {
+
+    # ffmpeg_stream = pkgs.ffmpeg.overrideAttrs (oldAttrs: {
+    #   buildInputs = oldAttrs.buildInputs ++ [ pkgs.v4l_utils ];
+    #   configureFlags = oldAttrs.configureFlags ++ [ "--enable-libv4l2" ];
+    # });
+
+
+    ffmpegV4l2 = pkgs.ffmpeg.override {
+      enableLibv4l2 = true;
+      enableV4l2M2M = true;
+    };
+
+  };
+
 
   fonts.packages= with pkgs; [
     nerdfonts
@@ -168,7 +176,7 @@ in
   users.users.tiago = {
     isNormalUser = true;
     description = "tiago";
-    extraGroups = [ "networkmanager" "wheel" "input" ];
+    extraGroups = [ "networkmanager" "wheel" "input" "video" ];  # the video group allows access to the v4l2 devices for streaming to the virtual webcam
     packages = with pkgs; [
       # TODO: move to section environment.systemPackages below
       firefox-wayland
