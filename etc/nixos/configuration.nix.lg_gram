@@ -55,16 +55,16 @@ in
   boot.initrd.luks.devices."luks-b7d87692-69e8-4fb0-abd7-73dca1955c10".device = "/dev/disk/by-uuid/b7d87692-69e8-4fb0-abd7-73dca1955c10";
   boot.initrd.luks.devices."luks-b7d87692-69e8-4fb0-abd7-73dca1955c10".keyFile = "/crypto_keyfile.bin";
 
-  # Add module to the boot kernel modules
-  boot.kernelModules = [ "v4l2loopback" ];  # these module allows creating a virtual webcam for sharing my screen on Zoom and other software
-
   # Ensure the module package is installed
-  nixpkgs.config.packageOverrides = pkgs: {
-    linuxPackages = pkgs.linuxPackages.extend (self: super: {
-      v4l2loopback = pkgs.callPackage <nixpkgs/pkgs/os-specific/linux/v4l2loopback/default.nix> {};
-    });
-  };
-
+  # nixpkgs.config.packageOverrides = pkgs: {
+  #   linuxPackages = pkgs.linuxPackages.extend (self: super: {
+  #     v4l2loopback = pkgs.callPackage <nixpkgs/pkgs/os-specific/linux/v4l2loopback/default.nix> {};
+  #   });
+  # };
+  # Add module to the boot kernel modules
+  # boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
+  boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+  boot.kernelModules = [ "v4l2loopback" ];  # these module allows creating a virtual webcam for sharing my screen on Zoom and other software
 
   networking.hostName = "nixos-lab"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -352,7 +352,7 @@ in
     wf-recorder  # screen video recording
     remind
     util-linux  # provides ncal
-
+    v4l_utils  # video4linux utils to allow screensharing my screen into a virtual webcam
     # ydotool
   ] ++ neovimBuildDeps; # concatenate the neovimBuildDeps list here;
 
