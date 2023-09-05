@@ -7,20 +7,21 @@ References:
 <https://wiki.hyprland.org/Nix/Hyprland-on-NixOS/>
 <https://www.youtube.com/watch?v=61wGzIv12Ds>
 
-- [-] Applications:
-    - [ ] hyprland keys cheatsheet: <https://github.com/hyprland-community/Hyprkeys>
-
 - [-] Finish configuration
+    - [ ] vimjoyer keyboard remapping tools (talvez eu possa usar para o double shift = CAPSLOCK no teclado da system76):
+        <https://youtu.be/lyxScRCe6bE?si=BGdZyHETl3tL9ctW>
+        <https://youtu.be/UPWkQ3LUDOU?si=UGE9WjCyB68XRzQp>
     - [ ] alternative to xdotool: wtype
     - [ ] Configure workspaces on monitors
         - [ ] Create a named "share" workspace when sharing my screen
         - [ ] <https://wiki.hyprland.org/FAQ/#how-do-i-move-my-favorite-workspaces-to-a-new-monitor-when-i-plug-it-in>
         - [ ] <http://wiki.hyprland.org/FAQ/#how-do-i-export-envvars-for-hyprland>
+    - [ ] hyprland keys cheatsheet: <https://github.com/hyprland-community/Hyprkeys>
 
 
 ## docker
 
-Install from this instrustions: <https://nixos.wiki/wiki/Docker>
+Install from this instructions: <https://nixos.wiki/wiki/Docker>
 
 ## nvim
 

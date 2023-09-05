@@ -1,5 +1,29 @@
+
+- [x] Applications:
+    - [x] zoom
+        - [x] try this solution from here <https://www.reddit.com/r/wayland/comments/lcctwo/screen_sharing_on_wayland/>:
+            - [x] compile the module for NixOS (see my talk "Load v4l2loopback on NixOS" with ChatGPT)
+            - [-] share my screen as a virtual webcam. That should work with any software that can switch cameras, even if their screen share feature is broken.
+            ``` bash
+
+            sudo modinfo v4l2loopback
+
+            sudo modprobe v4l2loopback exclusive_caps=1 card_label=WfRecorder
+
+            v4l2-ctl --list-devices  # that is to discover which device is the one from v4l2 (Dummy video device)
+
+            # TODO: continue from here
+            # wf-recorder --muxer=v4l2 --codec=rawvideo --file=/dev/video4 -x yuv420p -o eDP-1
+            wf-recorder -f - -x yuv420p -o eDP-1 | ffmpeg -i - -f v4l2 /dev/video0
+
+            ```
+        - [x] If the solution above does not work, I will have to logoff from hyprland and logon on bspwm with xorg to use zoom and be able to share my screen - the good part is that my tmux sessions are preserved when doing logoff from hyprland and login into minimal bspwm (copy the configuration and bindings for a minimal working bspwm from my dot_files repo.)
+                - [x] see how to hide obs window on that case
+
+
 ## flatpaks
-- [ ] How to install packages:
+
+- [x] How to install packages:
     ``` bash
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     flatpak update
