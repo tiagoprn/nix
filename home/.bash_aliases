@@ -89,6 +89,9 @@ alias xsession='[[ ! -z "$DISPLAY" ]] && source $HOME/.xsession'
 alias ls='ls -a --color'
 
 alias stream01_activate_capture='sudo modprobe v4l2loopback exclusive_caps=1 card_label=WfRecorder; sudo modinfo v4l2loopback'
-alias stream02_01_capture_full='rm /tmp/fifo.mkv ; mkfifo /tmp/fifo.mkv ; wf-recorder -f /tmp/fifo.mkv -x yuv420p -o eDP-1 --audio; '
-alias stream02_02_capture_selection='rm /tmp/fifo.mkv ; mkfifo /tmp/fifo.mkv ; wf-recorder -g "$(slurp)" -f /tmp/fifo.mkv --audio'
-alias stream03_pipe_to_virtual_camera='ffmpeg -re -i /tmp/fifo.mkv -pix_fmt yuv420p -c:v rawvideo -c:a pcm_s16le -f v4l2 /dev/video0'
+alias stream02_01_capture_full='rm /tmp/fifo.mkv ; mkfifo /tmp/fifo.mkv ; wf-recorder -f /tmp/fifo.mkv -x yuv420p -o eDP-1;'
+alias stream02_02_capture_selection='rm /tmp/fifo.mkv ; mkfifo /tmp/fifo.mkv ; wf-recorder -g "$(slurp)" -f /tmp/fifo.mkv'
+# below uses Intel Hardware Acceleration using the GPU:
+alias stream03_01_hardware_pipe_to_virtual_camera='export LIBVA_DRIVER_NAME=i965 && ffmpeg -hwaccel vaapi -hwaccel_device /dev/dri/renderD128 -hwaccel_output_format vaapi -i /tmp/fifo.mkv -vf "hflip,format=nv12|vaapi,hwupload,scale_vaapi=w=1280:h=720" -c:v h264_vaapi -f v4l2 /dev/video0'
+# below uses software rendering:
+alias stream03_02_software_pipe_to_virtual_camera='ffmpeg -i /tmp/fifo.mkv -vf "hflip,scale=1280:720" -threads 6 -pix_fmt yuv420p -c:v rawvideo -f v4l2 /dev/video0'

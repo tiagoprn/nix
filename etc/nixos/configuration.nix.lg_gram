@@ -151,21 +151,26 @@ in
   #   };
   # };
 
+  # nixpkgs.config.packageOverrides = pkgs: {
+  #   ffmpegV4l2 = pkgs.ffmpeg.overrideAttrs (oldAttrs: {
+  #     buildInputs = oldAttrs.buildInputs ++ [ pkgs.libv4l ];
+  #     configureFlags = oldAttrs.configureFlags ++ [ "--enable-libv4l2" "--enable-v4l2-m2m" ];
+  #   });
+  # };
+
   nixpkgs.config.packageOverrides = pkgs: {
-
-    # ffmpeg_stream = pkgs.ffmpeg.overrideAttrs (oldAttrs: {
-    #   buildInputs = oldAttrs.buildInputs ++ [ pkgs.v4l_utils ];
-    #   configureFlags = oldAttrs.configureFlags ++ [ "--enable-libv4l2" ];
-    # });
-
-
-    ffmpegV4l2 = pkgs.ffmpeg.override {
-      enableLibv4l2 = true;
-      enableV4l2M2M = true;
-    };
-
+    ffmpegV4l2 = pkgs.ffmpeg.overrideAttrs (oldAttrs: {
+      buildInputs = oldAttrs.buildInputs ++ [
+        pkgs.libv4l
+        pkgs.intel-media-sdk
+      ];
+      configureFlags = oldAttrs.configureFlags ++ [
+        "--enable-libv4l2"
+        "--enable-v4l2-m2m"
+        "--enable-libmfx"
+      ];
+    });
   };
-
 
   fonts.packages= with pkgs; [
     nerdfonts
@@ -176,7 +181,7 @@ in
   users.users.tiago = {
     isNormalUser = true;
     description = "tiago";
-    extraGroups = [ "networkmanager" "wheel" "input" "video" ];  # the video group allows access to the v4l2 devices for streaming to the virtual webcam
+    extraGroups = [ "networkmanager" "wheel" "input" "video" "render" ];  # the video/render groups allows access to the v4l2 devices for streaming to the virtual webcam
     packages = with pkgs; [
       # TODO: move to section environment.systemPackages below
       firefox-wayland
@@ -196,7 +201,7 @@ in
       imagemagick
       yewtube
       mplayer
-      ffmpeg
+      ffmpegV4l2
       mpv
       vlc
       pavucontrol
@@ -361,6 +366,7 @@ in
     remind
     util-linux  # provides ncal
     v4l_utils  # video4linux utils to allow screensharing my screen into a virtual webcam
+    libva-utils
     # ydotool
   ] ++ neovimBuildDeps; # concatenate the neovimBuildDeps list here;
 
@@ -421,10 +427,14 @@ in
   };
 
   hardware = {
-      # Opengl
-      opengl.enable = true;
+    opengl.enable = true;
+    # Below enables hardware acceleration on Intel GPUs.
+    opengl.extraPackages = with pkgs; [
+        vaapiIntel
+        libva
+        libva-utils
+    ];
   };
-
 
   # Enable the OpenSSH daemon.
 

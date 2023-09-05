@@ -1,0 +1,6 @@
+alias nvu="/storage/src/pde.nvim/scripts/sync-neovim.sh  --source-path $HOME/src/nvim --binary-path $HOME/local/bin/nvim"
+
+echo "---"
+echo "Type 'tp' and select nix to open a tmuxp session to keep working on the NixOS setup here."
+echo "---"
+

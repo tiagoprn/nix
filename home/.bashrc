@@ -80,11 +80,6 @@ if [ -d "$LOCAL_BIN" ]; then
     export PATH="$PATH:$LOCAL_BIN"
 fi
 
-DOT_LOCAL_BIN="$HOME/.local/bin"
-if [ -d "$DOT_LOCAL_BIN" ]; then
-    export PATH="$PATH:$DOT_LOCAL_BIN"
-fi
-
 NPM_BIN="$HOME/.npm-packages/bin"
 if [ -d "$NPM_BIN" ]; then
     export PATH="$PATH:$NPM_BIN"
