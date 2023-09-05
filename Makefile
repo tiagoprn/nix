@@ -29,7 +29,7 @@ todo:  ## open the TODO LIST on nvim
 	nvim TODO.md
 
 nvim:  ## compile nvim from source
-	/storage/src/pde.nvim/scripts/sync-neovim.sh  --source-path $(HOME)/src/nvim --binary-path $(HOME)/local/bin/nvim
+	time /storage/src/pde.nvim/scripts/sync-neovim.sh  --source-path $(HOME)/src/nvim --binary-path $(HOME)/local/bin/nvim
 
 all: nix-conf-lg config-dirs config-files scripts  ## copy all configuration to here
 	echo "Successfully finished."
