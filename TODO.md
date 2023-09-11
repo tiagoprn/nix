@@ -2,7 +2,7 @@
 
 ## general
 
-- [ ] add my ssh key to the following machines :
+- [ ] add my ssh key to the following machines (they must me on the ugreen vault) :
     - [ ] tiago@cosmos
     - [ ] tds@cosmos
     - [ ] engineering
