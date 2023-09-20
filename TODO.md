@@ -2,22 +2,13 @@
 
 ## general
 
-- [ ] add my ssh key to the following machines (they must me on the ugreen vault) :
+- [-] add my ssh key to the following machines (they must be on the ugreen vault under `/secrets`):
     - [ ] tiago@cosmos
     - [ ] tds@cosmos
-    - [ ] engineering
+    - [x] engineering
     - [ ] linode - xplab
     - [ ] linode - tiagoprnl.me
     - [ ] linode - tiago@lowerdecks
-
-- [ ] script to rsync copy the wasabi memos sqlite db backup on XTORAGE-2GB to DBs on the ugreen NVMe
-
-- [ ] Create folder secrets on the ugreen NVMe and copy to there:
-    - [ ] secrets/gnupg
-    - [ ] secrets/ssh-keys (all machines)
-    - [ ] secrets/ssh-configs (tds/tiago@cosmos)
-    - [ ] secrets/pass
-    - [ ] thunderbird (`~/.var/app/org.mozilla.Thunderbird`) - rsync this one
 
 ## hyprland
 
