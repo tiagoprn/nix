@@ -367,6 +367,8 @@ in
     util-linux  # provides ncal
     v4l_utils  # video4linux utils to allow screensharing my screen into a virtual webcam
     libva-utils
+    gnupg
+    pinentry.gtk2
     # ydotool
   ] ++ neovimBuildDeps; # concatenate the neovimBuildDeps list here;
 
