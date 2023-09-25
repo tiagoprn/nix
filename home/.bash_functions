@@ -32,6 +32,12 @@ function permissions() {  # get files numeric permissions
 }
 
 function cb() {  # Copies to clipboard. You can pipe anything on the terminal to it
+  if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
+    CLIPBOARD_COPY_CMD="wl-copy"
+  else
+    CLIPBOARD_COPY_CMD="xclip -i -selection clipboard"
+  fi
+
   local _scs_col="\e[0;32m"; local _wrn_col='\e[1;31m'; local _trn_col='\e[0;33m'
   if [[ "$USER" == "root" ]]; then
     echo -e "$_wrn_col""Must be regular user (not root) to copy a file to the clipboard.\e[0m"
@@ -49,13 +55,23 @@ function cb() {  # Copies to clipboard. You can pipe anything on the terminal to
       echo "       echo <string> | cb"
     else
       # Copy input to both X clipboards
-      echo -n "$input" | wl-copy
+      echo -n "$input" | ${CLIPBOARD_COPY_CMD}
       # Truncate text for status
       if [ ${#input} -gt 80 ]; then input="$(echo $input | cut -c1-80)$_trn_col...\e[0m"; fi
       # Print status.
       echo -e "$_scs_col""Copied to clipboard:\e[0m $input"
     fi
   fi
+}
+
+function cbp() {  # Pastes from clipboard.
+  if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
+    CLIPBOARD_PASTE_CMD="wl-paste"
+  else
+    CLIPBOARD_PASTE_CMD="xclip -i -selection clipboard -o"
+  fi
+
+  ${CLIPBOARD_PASTE_CMD}
 }
 
 function cbf() {  # copy file contents to the clipboard
